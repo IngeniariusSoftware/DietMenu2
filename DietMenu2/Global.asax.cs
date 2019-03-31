@@ -8,8 +8,12 @@ using System.Web.Routing;
 
 namespace DietMenu2
 {
+    using NLog;
+
     public class MvcApplication : System.Web.HttpApplication
     {
+        public static Logger Log = LogManager.GetCurrentClassLogger();
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
