@@ -12,10 +12,11 @@ namespace DietMenu2
 
     public class MvcApplication : System.Web.HttpApplication
     {
-        public static Logger Log = LogManager.GetCurrentClassLogger();
+        public static readonly Logger Log = LogManager.GetCurrentClassLogger();
 
         protected void Application_Start()
         {
+            Log.Info("Запуск сервера");
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
