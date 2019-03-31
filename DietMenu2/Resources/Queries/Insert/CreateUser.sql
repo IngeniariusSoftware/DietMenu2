@@ -1,0 +1,24 @@
+﻿insert into users
+(
+ user_login,
+ user_hash,
+ user_name,
+ user_surname,
+ user_height,
+ user_weight,
+ user_age,
+ user_gender_type_id,
+ user_type_id
+)
+values
+(
+ @login,
+ @hash,
+ @name,
+ @surname,
+ @height, 
+ @weight,
+ @age,
+ @genderid,
+ 1
+)
