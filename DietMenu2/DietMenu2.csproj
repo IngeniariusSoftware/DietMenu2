@@ -131,7 +131,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Images\Images.Designer.cs" />
+    <Compile Include="Resources\Queries\Queries.Designer.cs" />
+    <Compile Include="Resources\Texts\Texts.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -142,6 +146,49 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Resources\DietMenuIcon.ico" />
+    <Content Include="Resources\Images\AgeIcon.png" />
+    <Content Include="Resources\Images\Author.jpg" />
+    <Content Include="Resources\Images\BackIcon.png" />
+    <Content Include="Resources\Images\CookBookIcon.png" />
+    <Content Include="Resources\Images\DiaryIcon.png" />
+    <Content Include="Resources\Images\DietMenuAboutBackground.png" />
+    <Content Include="Resources\Images\DietMenuIcon.png" />
+    <Content Include="Resources\Images\DietMenuLogo.jpg" />
+    <Content Include="Resources\Images\DishIcon.png" />
+    <Content Include="Resources\Images\ExitIcon.png" />
+    <Content Include="Resources\Images\ExportIcon.png" />
+    <Content Include="Resources\Images\GenderIcon.png" />
+    <Content Include="Resources\Images\GraphicsIcon.png" />
+    <Content Include="Resources\Images\HeightIcon.png" />
+    <Content Include="Resources\Images\ImportIcon.png" />
+    <Content Include="Resources\Images\MainWindowBackground.jpg" />
+    <Content Include="Resources\Images\MenuIcon.png" />
+    <Content Include="Resources\Images\PasswordIcon.png" />
+    <Content Include="Resources\Images\PersonalDataIcon.png" />
+    <Content Include="Resources\Images\ProductIcon.png" />
+    <Content Include="Resources\Images\QueryConstructorIcon.png" />
+    <Content Include="Resources\Images\ReturnIcon.png" />
+    <Content Include="Resources\Images\StartMenuBackground.jpg" />
+    <Content Include="Resources\Images\UserDefaultProfileIcon.png" />
+    <Content Include="Resources\Images\UserIcon.png" />
+    <Content Include="Resources\Images\UsersIcon.png" />
+    <Content Include="Resources\Images\WallEIcon.png" />
+    <Content Include="Resources\Images\WeightIcon.png" />
+    <Content Include="Resources\Queries\Delete\test - Копировать.sql" />
+    <Content Include="Resources\Queries\Delete\test.sql" />
+    <Content Include="Resources\Queries\Insert\CreateImage.sql" />
+    <Content Include="Resources\Queries\Insert\CreateUser.sql" />
+    <Content Include="Resources\Queries\Insert\test - Копировать.sql" />
+    <Content Include="Resources\Queries\Select\CheckLoginExistence.sql" />
+    <Content Include="Resources\Queries\Select\GetActualUserMenu.sql" />
+    <Content Include="Resources\Queries\Select\GetDishes.sql" />
+    <Content Include="Resources\Queries\Select\GetProducts.sql" />
+    <Content Include="Resources\Queries\Select\GetUser.sql" />
+    <Content Include="Resources\Queries\Select\GetUserGenderTypes.sql" />
+    <Content Include="Resources\Queries\Select\GetUserImagePath.sql" />
+    <Content Include="Resources\Queries\Update\test.sql" />
+    <Content Include="Resources\Texts\About.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="NLog.config">
@@ -178,7 +225,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -192,6 +238,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\Images.resx" />
+    <EmbeddedResource Include="Resources\Queries\Queries.resx" />
+    <EmbeddedResource Include="Resources\Texts\Texts.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
