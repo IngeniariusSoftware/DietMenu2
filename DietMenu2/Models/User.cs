@@ -3,8 +3,6 @@ namespace DietMenu.Entities
 {
     using System.Text.RegularExpressions;
 
-    using DietMenu.Modules;
-
     public class User
     {
         private const double MinWeight = 0;
@@ -294,7 +292,8 @@ namespace DietMenu.Entities
 
                     default:
                         {
-                            return Data.GenderList.Find(x => x.GenderId == _genderId)?.GenderName;
+                            //TODO return Data.GenderList.Find(x => x.GenderId == _genderId)?.GenderName;
+                            return null;
                         }
                 }
             }
@@ -307,14 +306,14 @@ namespace DietMenu.Entities
                 }
                 else
                 {
-                    int? result;
+                    int? result = null;
                     if (int.TryParse(value, out int id))
                     {
-                        result = Data.GenderList.Find(x => x.GenderId == id)?.GenderId;
+                        //TODO result = Data.GenderList.Find(x => x.GenderId == id)?.GenderId;
                     }
                     else
                     {
-                        result = Data.GenderList.Find(x => x.GenderName == value)?.GenderId;
+                        //TODO result = Data.GenderList.Find(x => x.GenderName == value)?.GenderId;
                     }
 
                     if (result != null)

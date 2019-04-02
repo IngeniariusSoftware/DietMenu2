@@ -46,6 +46,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.3.1.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.3.1\lib\net45\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common.WebHost, Version=3.3.1.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.WebHost.3.3.1\lib\net45\Ninject.Web.Common.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.3.0\lib\net45\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.6.1\lib\net45\NLog.dll</HintPath>
     </Reference>
@@ -109,6 +121,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -126,16 +141,18 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\IUser.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\Images\Images.Designer.cs" />
-    <Compile Include="Resources\Queries\Queries.Designer.cs" />
-    <Compile Include="Resources\Texts\Texts.Designer.cs" />
+    <Compile Include="Content\Resources\Images\Images.Designer.cs" />
+    <Compile Include="Content\Resources\Queries\Queries.Designer.cs" />
+    <Compile Include="Content\Resources\Texts\Texts.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -146,49 +163,49 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Resources\DietMenuIcon.ico" />
-    <Content Include="Resources\Images\AgeIcon.png" />
-    <Content Include="Resources\Images\Author.jpg" />
-    <Content Include="Resources\Images\BackIcon.png" />
-    <Content Include="Resources\Images\CookBookIcon.png" />
-    <Content Include="Resources\Images\DiaryIcon.png" />
-    <Content Include="Resources\Images\DietMenuAboutBackground.png" />
-    <Content Include="Resources\Images\DietMenuIcon.png" />
-    <Content Include="Resources\Images\DietMenuLogo.jpg" />
-    <Content Include="Resources\Images\DishIcon.png" />
-    <Content Include="Resources\Images\ExitIcon.png" />
-    <Content Include="Resources\Images\ExportIcon.png" />
-    <Content Include="Resources\Images\GenderIcon.png" />
-    <Content Include="Resources\Images\GraphicsIcon.png" />
-    <Content Include="Resources\Images\HeightIcon.png" />
-    <Content Include="Resources\Images\ImportIcon.png" />
-    <Content Include="Resources\Images\MainWindowBackground.jpg" />
-    <Content Include="Resources\Images\MenuIcon.png" />
-    <Content Include="Resources\Images\PasswordIcon.png" />
-    <Content Include="Resources\Images\PersonalDataIcon.png" />
-    <Content Include="Resources\Images\ProductIcon.png" />
-    <Content Include="Resources\Images\QueryConstructorIcon.png" />
-    <Content Include="Resources\Images\ReturnIcon.png" />
-    <Content Include="Resources\Images\StartMenuBackground.jpg" />
-    <Content Include="Resources\Images\UserDefaultProfileIcon.png" />
-    <Content Include="Resources\Images\UserIcon.png" />
-    <Content Include="Resources\Images\UsersIcon.png" />
-    <Content Include="Resources\Images\WallEIcon.png" />
-    <Content Include="Resources\Images\WeightIcon.png" />
-    <Content Include="Resources\Queries\Delete\test - Копировать.sql" />
-    <Content Include="Resources\Queries\Delete\test.sql" />
-    <Content Include="Resources\Queries\Insert\CreateImage.sql" />
-    <Content Include="Resources\Queries\Insert\CreateUser.sql" />
-    <Content Include="Resources\Queries\Insert\test - Копировать.sql" />
-    <Content Include="Resources\Queries\Select\CheckLoginExistence.sql" />
-    <Content Include="Resources\Queries\Select\GetActualUserMenu.sql" />
-    <Content Include="Resources\Queries\Select\GetDishes.sql" />
-    <Content Include="Resources\Queries\Select\GetProducts.sql" />
-    <Content Include="Resources\Queries\Select\GetUser.sql" />
-    <Content Include="Resources\Queries\Select\GetUserGenderTypes.sql" />
-    <Content Include="Resources\Queries\Select\GetUserImagePath.sql" />
-    <Content Include="Resources\Queries\Update\test.sql" />
-    <Content Include="Resources\Texts\About.txt" />
+    <Content Include="Content\Resources\DietMenuIcon.ico" />
+    <Content Include="Content\Resources\Images\AgeIcon.png" />
+    <Content Include="Content\Resources\Images\Author.jpg" />
+    <Content Include="Content\Resources\Images\BackIcon.png" />
+    <Content Include="Content\Resources\Images\CookBookIcon.png" />
+    <Content Include="Content\Resources\Images\DiaryIcon.png" />
+    <Content Include="Content\Resources\Images\DietMenuAboutBackground.png" />
+    <Content Include="Content\Resources\Images\DietMenuIcon.png" />
+    <Content Include="Content\Resources\Images\DietMenuLogo.jpg" />
+    <Content Include="Content\Resources\Images\DishIcon.png" />
+    <Content Include="Content\Resources\Images\ExitIcon.png" />
+    <Content Include="Content\Resources\Images\ExportIcon.png" />
+    <Content Include="Content\Resources\Images\GenderIcon.png" />
+    <Content Include="Content\Resources\Images\GraphicsIcon.png" />
+    <Content Include="Content\Resources\Images\HeightIcon.png" />
+    <Content Include="Content\Resources\Images\ImportIcon.png" />
+    <Content Include="Content\Resources\Images\MainWindowBackground.jpg" />
+    <Content Include="Content\Resources\Images\MenuIcon.png" />
+    <Content Include="Content\Resources\Images\PasswordIcon.png" />
+    <Content Include="Content\Resources\Images\PersonalDataIcon.png" />
+    <Content Include="Content\Resources\Images\ProductIcon.png" />
+    <Content Include="Content\Resources\Images\QueryConstructorIcon.png" />
+    <Content Include="Content\Resources\Images\ReturnIcon.png" />
+    <Content Include="Content\Resources\Images\StartMenuBackground.jpg" />
+    <Content Include="Content\Resources\Images\UserDefaultProfileIcon.png" />
+    <Content Include="Content\Resources\Images\UserIcon.png" />
+    <Content Include="Content\Resources\Images\UsersIcon.png" />
+    <Content Include="Content\Resources\Images\WallEIcon.png" />
+    <Content Include="Content\Resources\Images\WeightIcon.png" />
+    <Content Include="Content\Resources\Queries\Delete\test - Копировать.sql" />
+    <Content Include="Content\Resources\Queries\Delete\test.sql" />
+    <Content Include="Content\Resources\Queries\Insert\CreateImage.sql" />
+    <Content Include="Content\Resources\Queries\Insert\CreateUser.sql" />
+    <Content Include="Content\Resources\Queries\Insert\test - Копировать.sql" />
+    <Content Include="Content\Resources\Queries\Select\CheckLoginExistence.sql" />
+    <Content Include="Content\Resources\Queries\Select\GetActualUserMenu.sql" />
+    <Content Include="Content\Resources\Queries\Select\GetDishes.sql" />
+    <Content Include="Content\Resources\Queries\Select\GetProducts.sql" />
+    <Content Include="Content\Resources\Queries\Select\GetUser.sql" />
+    <Content Include="Content\Resources\Queries\Select\GetUserGenderTypes.sql" />
+    <Content Include="Content\Resources\Queries\Select\GetUserImagePath.sql" />
+    <Content Include="Content\Resources\Queries\Update\test.sql" />
+    <Content Include="Content\Resources\Texts\About.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="NLog.config">
@@ -240,9 +257,9 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Images\Images.resx" />
-    <EmbeddedResource Include="Resources\Queries\Queries.resx" />
-    <EmbeddedResource Include="Resources\Texts\Texts.resx" />
+    <EmbeddedResource Include="Content\Resources\Images\Images.resx" />
+    <EmbeddedResource Include="Content\Resources\Queries\Queries.resx" />
+    <EmbeddedResource Include="Content\Resources\Texts\Texts.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
