@@ -14,12 +14,18 @@ namespace DietMenu2
     public class MvcApplication : System.Web.HttpApplication
     {
         public static readonly Logger Log = LogManager.GetCurrentClassLogger();
-
+        
         public static readonly IKernel DependencyKernel = new StandardKernel();
 
         protected void Application_Start()
         {
             DependencyKernel.Bind<IUser>().To<User>();
+            DependencyKernel.Bind<IExample>().To<Example>();
+
+            IUser der = DependencyKernel.Get<IUser>();
+            IExample desr = DependencyKernel.Get<IExample>();
+
+
             Log.Info("Запуск сервера");
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
