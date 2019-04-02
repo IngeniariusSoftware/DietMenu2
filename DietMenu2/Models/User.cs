@@ -1,9 +1,9 @@
 ﻿
-namespace DietMenu.Entities
+namespace DietMenu2.Models
 {
     using System.Text.RegularExpressions;
 
-    public class User
+    public class User : IUser
     {
         private const double MinWeight = 0;
 
