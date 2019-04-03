@@ -19,18 +19,17 @@ namespace DietMenu2
 
         protected void Application_Start()
         {
-            DependencyKernel.Bind<IUser>().To<User>();
-            DependencyKernel.Bind<IExample>().To<Example>();
-
-            IUser der = DependencyKernel.Get<IUser>();
-            IExample desr = DependencyKernel.Get<IExample>();
-
-
-            Log.Info("Запуск сервера");
+            AddBindings();
+            Log.Info("Р—Р°РїСѓСЃРє СЃРµСЂРІРµСЂР°");
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        protected void AddBindings()
+        {
+            DependencyKernel.Bind<IUser>().To<User>();
         }
     }
 }
