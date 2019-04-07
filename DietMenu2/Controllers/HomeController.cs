@@ -26,5 +26,20 @@ namespace DietMenu2.Controllers
 
             return View();
         }
+
+        public ActionResult Start()
+        {
+            return View("Index");
+        }
+
+        public ActionResult Info()
+        {
+            return View();
+        }
+
+        public ActionResult Page()
+        {
+            return View();
+        }
     }
 }
